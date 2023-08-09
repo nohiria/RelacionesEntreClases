@@ -65,7 +65,7 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <UseRelation source="Entities.Persona" target="Entities.DNI" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="numDni" source="Entities.Persona" target="Entities.DNI" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="numDNI" source="Entities.Persona" target="Entities.DNI" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="DNI" source="Entities.Persona" target="Entities.DNI" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>
