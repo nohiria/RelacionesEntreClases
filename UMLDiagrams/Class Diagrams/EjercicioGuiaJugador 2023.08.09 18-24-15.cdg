@@ -26,7 +26,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Jugador" package="Entidades" visibility="public" xPosition="620.0" yPosition="20.0">
+    <Class name="Jugador" package="Entidades" visibility="public" xPosition="708.0" yPosition="20.0">
       <Fields>
         <Field name="nombre" type="String" visibility="private"/>
         <Field name="apellido" type="String" visibility="private"/>
