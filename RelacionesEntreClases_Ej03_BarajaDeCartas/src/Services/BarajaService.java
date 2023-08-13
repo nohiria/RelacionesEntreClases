@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entidad;
+package Services;
 
+import Entities.Baraja;
+import Entities.Carta;
 import Enums.Palo;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,50 +16,51 @@ import java.util.Scanner;
  *
  * @author nohyv
  */
-public class Baraja {
-    ArrayList<Carta> baraja;
-    ArrayList<Carta> monton;
+public class BarajaService {
+    private Baraja mazo= new Baraja();
+    private Baraja monton= new Baraja();
     
-    //Constructor
-    public Baraja() {
-        baraja= new ArrayList<>();
-        monton= new ArrayList<>();
-        crearBaraja();
-    }
-    
-    private void crearBaraja(){
+    public Baraja crearBaraja() {
+        //Se crean los mazos de cartas
+        ArrayList<Carta> cartasEntrada= new ArrayList<>();
+        ArrayList<Carta> cartasSalida= new ArrayList<>();
+        
         for(Palo palo: Palo.values()){
             for(int i=1; i<13; i++){
                 if(i!=8&&i!=9){
-                    baraja.add(new Carta(i, palo));
+                    cartasEntrada.add(new Carta(i, palo));
                 }
             }
         }
+        mazo.setCartas(cartasEntrada); //Se asignan las cartas creadas al mazo
+        monton.setCartas(cartasSalida); //Se asigna la lista vacía correspondiente al montón
+        System.out.println("Baraja creada");
         barajarCartas();
+        return mazo;
     }
     
     public void barajarCartas(){
-        Collections.shuffle(baraja);
+        Collections.shuffle(mazo.getCartas());
     }
     
     public Carta siguienteCarta(){
-        if(baraja.isEmpty()){
+        if(mazo.getCartas().isEmpty()){
             System.out.println("No hay más cartas en la baraja");
             return null;
         }else{
-            Carta carta= baraja.get(0);
+            Carta carta= mazo.getCartas().get(0);
             System.out.println("La siguiente carta es: "+carta.toString());
             return carta;
         }
     }
     
     public void cartasDisponibles(){
-        System.out.println(baraja.size()+" cartas disponibles para repartir");
+        System.out.println(mazo.getCartas().size()+" cartas disponibles para repartir");
     }
     
     public void darCartas(int cartasARetirar){
-        if(cartasARetirar>baraja.size()){
-            if(baraja.isEmpty()){
+        if(cartasARetirar>mazo.getCartas().size()){
+            if(mazo.getCartas().isEmpty()){
                 System.out.println("No hay cartas para repartir");
             }else{
                 System.out.println("No hay suficientes cartas");
@@ -65,20 +68,20 @@ public class Baraja {
             cartasDisponibles();
         }else{
             for(int i=0; i<cartasARetirar; i++){
-                Carta carta= baraja.remove(0);
-                monton.add(carta);
+                Carta carta= mazo.getCartas().remove(0);
+                monton.getCartas().add(carta);
             } 
         }
     }
     
     public void mostrarBaraja(){
-        baraja.forEach((carta) -> {
+        mazo.getCartas().forEach((carta) -> {
             System.out.println(carta.toString());
         });
     }
     
     public void mostrarMonton(){
-        monton.forEach((carta) -> {
+        monton.getCartas().forEach((carta) -> {
             System.out.println(carta.toString());
         });
     }

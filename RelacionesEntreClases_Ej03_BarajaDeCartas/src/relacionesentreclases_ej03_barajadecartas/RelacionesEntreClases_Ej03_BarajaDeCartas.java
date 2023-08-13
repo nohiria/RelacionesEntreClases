@@ -18,7 +18,7 @@ luego se llama al método, este no mostrara esa primera carta.
  */
 package relacionesentreclases_ej03_barajadecartas;
 
-import Entidad.Baraja;
+import Services.BarajaService;
 
 /**
  *
@@ -30,8 +30,9 @@ public class RelacionesEntreClases_Ej03_BarajaDeCartas {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Baraja baraja= new Baraja();
+        BarajaService baraja= new BarajaService();
         
+        baraja.crearBaraja();
         baraja.menu();
     }
     
