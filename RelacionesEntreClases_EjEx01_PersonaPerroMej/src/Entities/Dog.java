@@ -17,16 +17,18 @@ public class Dog {
     private Breed breed;
     private Integer age;
     private Size size;
+    private boolean adopted;
     
     //Constructor
     public Dog() {
     }
 
-    public Dog(String name, Breed breed, Integer age, Size size) {
+    public Dog(String name, Breed breed, Integer age, Size size, boolean adopted) {
         this.name = name;
         this.breed = breed;
         this.age = age;
         this.size = size;
+        this.adopted = adopted;
     }
     
     //Getters&Setters
@@ -61,11 +63,20 @@ public class Dog {
     public void setSize(Size size) {
         this.size = size;
     }
+
+    public boolean isAdopted() {
+        return adopted;
+    }
+
+    public void setAdopted(boolean adopted) {
+        this.adopted = adopted;
+    }
     
     //toString
+
     @Override
     public String toString() {
-        return "Dog{" + "name=" + name + ", breed=" + breed + ", age=" + age + ", size=" + size + '}';
+        return "Dog{" + "name=" + name + ", breed=" + breed + ", age=" + age + ", size=" + size + ", adopted=" + adopted + '}';
     }
     
 }
