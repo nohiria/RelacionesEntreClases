@@ -10,5 +10,5 @@ package Enums;
  * @author nohyv
  */
 public enum Breed {
-    BEAGLE, COCKER, PITBULL, DALMATA, BORDER_COLLIE, MONGREL;
+    BEAGLE, COCKER, PITBULL, DALMATA, BORDER_COLLIE, MONGREL, OTHER;
 }

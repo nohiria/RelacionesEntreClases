@@ -13,18 +13,18 @@ public class Person {
     private String name;
     private String lastname;
     private Integer age;
-    private Integer dni;
+    private Integer id;
     private Dog dog;
     
     //Constructor
     public Person() {
     }
 
-    public Person(String name, String lastname, Integer age, Integer dni, Dog dog) {
+    public Person(String name, String lastname, Integer age, Integer id, Dog dog) {
         this.name = name;
         this.lastname = lastname;
         this.age = age;
-        this.dni = dni;
+        this.id = id;
         this.dog = dog;
     }
     
@@ -53,12 +53,12 @@ public class Person {
         this.age = age;
     }
 
-    public Integer getDni() {
-        return dni;
+    public Integer getId() {
+        return id;
     }
 
-    public void setDni(Integer dni) {
-        this.dni = dni;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Dog getDog() {
@@ -72,7 +72,7 @@ public class Person {
     //toString
     @Override
     public String toString() {
-        return "Person{" + "name=" + name + ", lastname=" + lastname + ", age=" + age + ", dni=" + dni + ", dog=" + dog + '}';
+        return "Person{" + "name=" + name + ", lastname=" + lastname + ", age=" + age + ", id=" + id + ", dog=" + dog + '}';
     }
     
 }
