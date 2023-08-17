@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="RelacionesEntreClases_EjEx01_PersonaPerroMej">
+  <ClassDiagramComponents>
+    <Class name="Dog" package="Entities" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="breed" type="Breed" visibility="private"/>
+        <Field name="age" type="Integer" visibility="private"/>
+        <Field name="size" type="Size" visibility="private"/>
+        <Field name="adopted" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="Breed" name="breed"/>
+          <Argument type="Integer" name="age"/>
+          <Argument type="Size" name="size"/>
+          <Argument type="boolean" name="adopted"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getBreed" returnType="Breed" visibility="public"/>
+        <Method name="setBreed" returnType="void" visibility="public">
+          <Argument type="Breed" name="breed"/>
+        </Method>
+        <Method name="getAge" returnType="Integer" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="Integer" name="age"/>
+        </Method>
+        <Method name="getSize" returnType="Size" visibility="public"/>
+        <Method name="setSize" returnType="void" visibility="public">
+          <Argument type="Size" name="size"/>
+        </Method>
+        <Method name="isAdopted" returnType="boolean" visibility="public"/>
+        <Method name="setAdopted" returnType="void" visibility="public">
+          <Argument type="boolean" name="adopted"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="o"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Person" package="Entities" visibility="public" xPosition="23.0" yPosition="512.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="lastname" type="String" visibility="private"/>
+        <Field name="age" type="Integer" visibility="private"/>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="dog" type="Dog" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="lastname"/>
+          <Argument type="Integer" name="age"/>
+          <Argument type="Integer" name="id"/>
+          <Argument type="Dog" name="dog"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getLastname" returnType="String" visibility="public"/>
+        <Method name="setLastname" returnType="void" visibility="public">
+          <Argument type="String" name="lastname"/>
+        </Method>
+        <Method name="getAge" returnType="Integer" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="Integer" name="age"/>
+        </Method>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getDog" returnType="Dog" visibility="public"/>
+        <Method name="setDog" returnType="void" visibility="public">
+          <Argument type="Dog" name="dog"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RelacionesEntreClases_EjEx01_PersonaPerroMej" package="relacionesentreclases_ejex01_personaperromej" visibility="public" xPosition="811.0" yPosition="57.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DPService" package="Services" visibility="public" xPosition="836.0" yPosition="239.0">
+      <Fields>
+        <Field name="peopleList" type="ArrayList&lt;Person&gt;" visibility="private"/>
+        <Field name="dogList" type="ArrayList&lt;Dog&gt;" visibility="private"/>
+        <Field name="input" type="Scanner" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="createPerson" returnType="void" visibility="public"/>
+        <Method name="createDog" returnType="void" visibility="public"/>
+        <Method name="createListofPeople" returnType="void" visibility="public"/>
+        <Method name="createListofDogs" returnType="void" visibility="public"/>
+        <Method name="adoptDog" returnType="void" visibility="public"/>
+        <Method name="dogIsAdopted" returnType="boolean" visibility="private">
+          <Argument type="String" name="dog"/>
+        </Method>
+        <Method name="showListOfDogs" returnType="void" visibility="private"/>
+        <Method name="showNumberedListOfPeople" returnType="void" visibility="private"/>
+        <Method name="breedMenu" returnType="Breed" visibility="private"/>
+        <Method name="sizeMenu" returnType="Size" visibility="private"/>
+        <Method name="adoptionMenu" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="Breed" package="Enums" visibility="public" xPosition="568.0" yPosition="44.0">
+      <Literals>
+        <Literal name="BEAGLE"/>
+        <Literal name="COCKER"/>
+        <Literal name="PITBULL"/>
+        <Literal name="DALMATA"/>
+        <Literal name="BORDER_COLLIE"/>
+        <Literal name="MONGREL"/>
+        <Literal name="OTHER"/>
+      </Literals>
+    </Enum>
+    <Enum name="Size" package="Enums" visibility="public" xPosition="568.0" yPosition="264.0">
+      <Literals>
+        <Literal name="BIG"/>
+        <Literal name="MEDIUM"/>
+        <Literal name="SMALL"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="breed" source="Entities.Dog" target="Enums.Breed" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entities.Person" target="Entities.Dog" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Services.DPService" target="Enums.Breed" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entities.Dog" target="Enums.Breed" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entities.Dog" target="Enums.Size" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="peopleList" source="Services.DPService" target="Entities.Person" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Person&gt;"/>
+    <HasRelation name="dogList" source="Services.DPService" target="Entities.Dog" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Dog&gt;"/>
+    <HasRelation name="size" source="Entities.Dog" target="Enums.Size" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dog" source="Entities.Person" target="Entities.Dog" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Services.DPService" target="Enums.Size" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
