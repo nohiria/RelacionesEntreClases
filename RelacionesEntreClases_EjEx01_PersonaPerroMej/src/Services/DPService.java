@@ -38,6 +38,7 @@ public class DPService {
         person.setAge(Integer.parseInt(input.nextLine()));
         System.out.println("Enter the ID");
         person.setId(Integer.parseInt(input.nextLine()));
+        peopleList.add(person);
     }
     
     public void createDog(){
@@ -49,6 +50,72 @@ public class DPService {
         System.out.println("Enter the age");
         dog.setAge(Integer.parseInt(input.nextLine()));
         dog.setSize(sizeMenu());
+        dogList.add(dog);
+    }
+    
+    public void createListofPeople(){
+        String response= "y";
+        while(response.equalsIgnoreCase("y")){
+            createPerson();
+            System.out.println("Do you want to continue adding people to the list?");
+            response= input.nextLine();
+        }
+    }
+    
+    public void createListofDogs(){
+        String response= "y";
+        while(response.equalsIgnoreCase("y")){
+            createDog();
+            System.out.println("Do you want to continue adding dogs to the list?");
+            response= input.nextLine();
+        }
+    }
+    
+    public void adoptDog(){
+        showNumberedListOfPeople();
+        System.out.println("Enter the number corresponding to the adopter");
+        int num= Integer.parseInt(input.nextLine());
+        showListOfDogs();
+        System.out.println("Enter the dog name to adopt");
+        String dogName= input.nextLine();
+        if(!dogIsAdopted(dogName)){
+            for(Dog dog: dogList){
+                if(dog.getName().equalsIgnoreCase(dogName)){
+                    System.out.println(peopleList.get(num-1).getName() + " adopted " + dogName);
+                    peopleList.get(num-1).setDog(dog);
+                    dog.setAdopted(true);
+                }
+            }
+        }
+    }
+    
+    private boolean dogIsAdopted(String dog){
+        for(Dog d: dogList){
+            if(d.getName().equalsIgnoreCase(dog)){
+                if(d.isAdopted()){
+                    System.out.println("Dog is already adopted");
+                    return true;
+                }else{
+                    return false;
+                }
+            }  
+        }
+        System.out.println("Dog´s name not found");
+        return true;
+    }
+    
+    private void showListOfDogs(){
+        dogList.forEach((dog) -> {
+            System.out.println("-. "+dog.getName());
+        });
+    }
+    
+    private void showNumberedListOfPeople(){
+        int number=0;
+        for(Person person: peopleList){
+            number++;
+            System.out.println(number+". "+person.toString());
+        }
     }
     
     private Breed breedMenu(){
@@ -108,5 +175,38 @@ public class DPService {
         return selectedSize;
     }
     
+    public void adoptionMenu(){
+        String response= "y";
+        while(response.equalsIgnoreCase("y")){
+            System.out.println("Menu");
+            System.out.println("1. Create list of people");
+            System.out.println("2. Create list of dogs");
+            System.out.println("3. Adopt dog");
+            System.out.println("4. Show list of people");
+            System.out.println("Select an option");
+            int option = Integer.parseInt(input.nextLine());
+            while (option < 1 || option > 4) {
+                System.out.println("Enter a valid option");
+                option = Integer.parseInt(input.nextLine());
+            }
+            switch (option) {
+                case 1:
+                    createListofPeople();
+                    break;
+                case 2:
+                    createListofDogs();
+                    break;
+                case 3:
+                    adoptDog();
+                    break;
+                case 4:
+                    showNumberedListOfPeople();
+                    break;
+            }
+            System.out.println("Do you want to go back to the menu?");
+            response=input.nextLine();
+        }
+        
+    }
     }
     

@@ -9,6 +9,8 @@ personas con sus respectivos perros.
  */
 package relacionesentreclases_ejex01_personaperromej;
 
+import Services.DPService;
+
 /**
  *
  * @author nohyv
@@ -19,7 +21,8 @@ public class RelacionesEntreClases_EjEx01_PersonaPerroMej {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        DPService dp= new DPService();
+        dp.adoptionMenu();
     }
     
 }
