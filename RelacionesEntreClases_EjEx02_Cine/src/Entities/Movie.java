@@ -65,7 +65,12 @@ public class Movie {
     //toString
     @Override
     public String toString() {
-        return "Movie{" + "title=" + title + ", durationMinutes=" + durationMinutes + ", minimunAge=" + minimunAge + ", director=" + director + '}';
+        return "Movie{" + 
+                "title=" + title + 
+                ", durationMinutes=" + durationMinutes +
+                ", minimunAge=" + minimunAge +
+                ", director=" + director +
+                '}';
     }
     
 }
