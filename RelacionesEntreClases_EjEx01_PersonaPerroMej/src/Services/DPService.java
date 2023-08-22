@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class DPService {
     private ArrayList<Person> peopleList;
     private ArrayList<Dog> dogList;
-    private Scanner input;
+    private final Scanner input;
 
     public DPService() {
         this.peopleList = new ArrayList<>();
