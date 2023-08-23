@@ -28,6 +28,8 @@ cada asiento o solo las X y espacios vacíos.
  */
 package relacionesentreclases_ejex02_cine;
 
+import Services.CinemaService;
+
 /**
  *
  * @author nohyv
@@ -38,7 +40,9 @@ public class RelacionesEntreClases_EjEx02_Cine {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        CinemaService cs= new CinemaService();
+        cs.createCinema();
+        cs.showHall();
     }
     
 }
