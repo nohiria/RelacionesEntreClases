@@ -7,7 +7,9 @@ package Services;
 
 import Entities.Cinema;
 import Entities.Movie;
+import Entities.Moviegoer;
 import Entities.Seat;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -92,4 +94,34 @@ public class CinemaService {
             System.out.println();
         }
     }
+    
+    // <editor-fold desc="Moviegoer Service: potencialMoviegoerList and createMoviegoer">
+    public ArrayList<Moviegoer> potentialMoviegoersList(){
+        ArrayList<Moviegoer> moviegoersList= new ArrayList<>();
+        String response= "y";
+        int customerCounter= 0;
+        do{
+            customerCounter++;
+            System.out.println("Client "+customerCounter+":");
+            moviegoersList.add(createMoviegoer());
+            System.out.println("Do you want to add another client? (Enter 'y' for yes):");
+        }while(response.equalsIgnoreCase("y"));
+        return moviegoersList; 
+    }
+    
+    public Moviegoer createMoviegoer(){
+        Moviegoer moviegoer= new Moviegoer();
+        System.out.println("Enter customer´s name");
+        moviegoer.setName(input.nextLine());
+        System.out.println("Enter the customer´s age");
+        moviegoer.setAge(Integer.parseInt(input.nextLine()));
+        System.out.println("How much money does the customer have available?");
+        moviegoer.setMoney(Double.parseDouble(input.nextLine()));
+        return moviegoer;
+    }
+    // </editor-fold>
+    
+    
 }
+    
+    
