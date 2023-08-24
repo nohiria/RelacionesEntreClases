@@ -42,7 +42,6 @@ public class RelacionesEntreClases_EjEx02_Cine {
     public static void main(String[] args) {
         CinemaService cs= new CinemaService();
         cs.createCinema();
-        cs.showHall();
     }
     
 }

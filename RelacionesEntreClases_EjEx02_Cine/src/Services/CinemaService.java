@@ -32,6 +32,9 @@ public class CinemaService {
         cinema.setHall(createHall());
         System.out.println("Enter the ticket price");
         cinema.setTicketCost(Double.parseDouble(input.nextLine()));
+        ArrayList<Moviegoer> moviegoersList= potentialMoviegoersList();
+        assignSeatsRandomly(moviegoersList);
+        showHall();
     }
     
     public Movie enterMovie(){
@@ -95,7 +98,6 @@ public class CinemaService {
         }
     }
     
-    // <editor-fold desc="Moviegoer Service: potencialMoviegoerList and createMoviegoer">
     public ArrayList<Moviegoer> potentialMoviegoersList(){
         ArrayList<Moviegoer> moviegoersList= new ArrayList<>();
         String response= "y";
@@ -105,6 +107,7 @@ public class CinemaService {
             System.out.println("Client "+customerCounter+":");
             moviegoersList.add(createMoviegoer());
             System.out.println("Do you want to add another client? (Enter 'y' for yes):");
+            response= input.nextLine();
         }while(response.equalsIgnoreCase("y"));
         return moviegoersList; 
     }
@@ -119,9 +122,47 @@ public class CinemaService {
         moviegoer.setMoney(Double.parseDouble(input.nextLine()));
         return moviegoer;
     }
-    // </editor-fold>
+    
+    public void assignSeatsRandomly(ArrayList<Moviegoer> moviegoersList){
+        int totalSeats= cinema.getHall().length*cinema.getHall()[0].length;
+        int assignedSeats= 0;
+        
+        for (Moviegoer moviegoer : moviegoersList) {
+                if(assignedSeats==totalSeats){
+                    System.out.println("All seats are already assigned. No more available seats.");
+                    break;
+                }
+                
+                if (hasEnoughMoney(moviegoer) && hasMinAge(moviegoer) && !moviegoer.hasSeat()) {
+                while (true) {
+                    int randomRow = (int) (Math.random() * 8);
+                    int randomCol = (int) (Math.random() * 6);
+
+                    if (cinema.getHall()[randomRow][randomCol].getMoviegoer() == null) {
+
+                        cinema.getHall()[randomRow][randomCol].setMoviegoer(moviegoer);
+                        moviegoer.setHasSeat(true);
+                        System.out.println(cinema.getHall()[randomRow][randomCol].getCode() + " assigned to " + moviegoer.getName());
+                        assignedSeats++;
+                        break;
+                    }
+                }
+            }
+        }
+    }
     
     
+    
+    public boolean hasMinAge(Moviegoer moviegoer){
+        int minAge= cinema.getMovie().getMinimunAge();
+        int moviegoerAge= moviegoer.getAge();
+        return moviegoerAge >= minAge;
+    }
+    
+    public boolean hasEnoughMoney(Moviegoer moviegoer){
+        double moneyRequired= cinema.getTicketCost();
+        return moviegoer.getMoney() >= moneyRequired;
+    }
 }
     
     

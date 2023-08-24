@@ -16,15 +16,17 @@ public class Moviegoer {
     private String name;
     private int age;
     private double money;
+    private boolean hasSeat;
     
     //Constructors
     public Moviegoer() {
     }
 
-    public Moviegoer(String name, int age, double money) {
+    public Moviegoer(String name, int age, double money, boolean hasSeat) {
         this.name = name;
         this.age = age;
         this.money = money;
+        this.hasSeat = hasSeat;
     }
     
     //Getters&Setters
@@ -51,15 +53,23 @@ public class Moviegoer {
     public void setMoney(double money) {
         this.money = money;
     }
+
+    public boolean hasSeat() {
+        return hasSeat;
+    }
+
+    public void setHasSeat(boolean hasSeat) {
+        this.hasSeat = hasSeat;
+    }
+    
+    
     
     //toString
+
     @Override
     public String toString() {
-        return "Moviegoer{" + 
-                "name=" + name +
-                ", age=" + age + 
-                ", money=" + money +
-                '}';
+        return "Moviegoer{" + "name=" + name + ", age=" + age + ", money=" + money + ", hasSeat=" + hasSeat + '}';
     }
+    
     
 }
